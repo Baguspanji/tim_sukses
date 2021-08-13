@@ -8,13 +8,17 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
+            user_id: {
+                allowNull: false,
+                type: Sequelize.INTEGER
+            },
             topik: {
                 allowNull: false,
                 type: Sequelize.STRING
             },
             isi: {
                 allowNull: false,
-                type: Sequelize.STRING
+                type: Sequelize.TEXT
             },
             status: {
                 defaultValue: 1,

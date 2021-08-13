@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            note.belongsTo(models.user, {
+                foreignKey: 'user_id',
+                targetKey: 'id_user',
+            })
         }
     };
     note.init({
@@ -20,13 +24,17 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
+        user_id: {
+            allowNull: false,
+            type: DataTypes.INTEGER
+        },
         topik: {
             allowNull: false,
             type: DataTypes.STRING
         },
         isi: {
             allowNull: false,
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
         status: {
             defaultValue: 1,
@@ -35,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         sequelize,
         modelName: 'note',
-        tableName: 'nates'
+        tableName: 'notes'
     });
     return note;
 };

@@ -75,7 +75,7 @@ content-type: application/json
 
 ###
 
-GET {{ url }}/get_anggota HTTP/1.1
+GET {{ url }}/get_note HTTP/1.1
 
 ###
 

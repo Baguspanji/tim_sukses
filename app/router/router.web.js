@@ -33,5 +33,11 @@ module.exports = (app) => {
 
     router.get('/get_anggota', controller.anggota.getAnggota)
 
+    // Catatan
+    router.get('/note', controller.note.findAll)
+    router.get('/note/status/:id', controller.note.status)
+
+    router.get('/get_note', controller.note.getNote)
+
     app.use('/', router)
 }
