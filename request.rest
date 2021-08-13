@@ -1,0 +1,74 @@
+@url = http://localhost:3000
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4NzYwMjE4LCJleHAiOjE2Mjg4NDY2MTh9.xB24K3Sj2cz1eajNDidIAFXwiot3YN4eVEQJeY2nKU0
+
+GET {{ url }}/api/user HTTP/1.1
+Authorization: Bearer {{ token }}
+
+###
+
+POST {{ url }}/api/signup HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "nama": "Super Admin",
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+
+POST {{ url }}/api/signin HTTP/1.1
+content-type: application/json
+
+{
+    "username": "bagus",
+    "password": "bagus123"
+}
+
+###
+
+GET {{ url }}/api/barang HTTP/1.1
+
+###
+
+GET {{ url }}/api/barang/1 HTTP/1.1
+
+###
+
+POST {{ url }}/api/barang HTTP/1.1
+Authorization: Bearer {{ token }}
+content-type: application/json
+
+{
+    "nama_barang": "Pensil Warna",
+    "harga": 60000
+}
+
+###
+
+GET {{ url }}/api/pemesanan HTTP/1.1
+Authorization: Bearer {{ token }}
+
+###
+
+POST {{ url }}/api/pemesanan HTTP/1.1
+Authorization: Bearer {{ token }}
+content-type: application/json
+
+{
+    "total": 100000,
+    "barangs": [
+        {
+            "id_barang": 2,
+            "qty": 2,
+            "jumlah": 40000
+        },
+        {
+            "id_barang": 3,
+            "qty": 1,
+            "jumlah": 60000
+        }
+    ]
+}
