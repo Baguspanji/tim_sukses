@@ -75,6 +75,10 @@ content-type: application/json
 
 ###
 
+GET {{ url }}/get_anggota HTTP/1.1
+
+###
+
 GET {{ url }}/province HTTP/1.1
 
 ###

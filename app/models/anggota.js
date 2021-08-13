@@ -11,6 +11,22 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            anggota.belongsTo(models.user, {
+                foreignKey: 'user_id',
+                targetKey: 'id_user',
+            })
+            anggota.belongsTo(models.province, {
+                foreignKey: 'provinsi',
+                targetKey: 'id'
+            })
+            anggota.belongsTo(models.regency, {
+                foreignKey: 'kota',
+                targetKey: 'id'
+            })
+            anggota.belongsTo(models.district, {
+                foreignKey: 'kecamatan',
+                targetKey: 'id'
+            })
         }
     };
     anggota.init({

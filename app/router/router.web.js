@@ -27,5 +27,11 @@ module.exports = (app) => {
     router.post('/regency', controller.area.getRegency)
     router.post('/district', controller.area.getDistrict)
 
+    // Anggota
+    router.get('/anggota', controller.anggota.findAll)
+    router.get('/anggota/status/:id', controller.anggota.status)
+
+    router.get('/get_anggota', controller.anggota.getAnggota)
+
     app.use('/', router)
 }
