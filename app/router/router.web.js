@@ -1,28 +1,31 @@
 const router = require('express').Router()
 const controller = require('../controllers')
 
-const auth = require('../helpers/auth.session').auth
-
 module.exports = (app) => {
 
     // Dashboard
     router.get('/', controller.admin.index)
 
-    // Barang
-    router.get('/user', controller.user.findAll)
-    router.get('/user/add', controller.user.formAdd)
-    router.post('/user', controller.user.create)
-    router.get('/user/edit/:id', controller.user.formEdit)
-    router.get('/user/status/:id', controller.user.status)
-    router.post('/user/:id', controller.user.update)
-    router.get('/user/delete/:id', controller.user.destroy)
-
-    router.get('/get_user', controller.user.getUser)
-
     // Login
     router.get('/login', controller.user.home)
     router.post('/login', controller.user.login)
     router.get('/logout', controller.user.logout)
+
+    // User
+    router.get('/user', controller.admin.findAll)
+    router.get('/user/add', controller.admin.formAdd)
+    router.post('/user', controller.admin.create)
+    router.get('/user/edit/:id', controller.admin.formEdit)
+    router.get('/user/status/:id', controller.admin.status)
+    router.post('/user/:id', controller.admin.update)
+    router.get('/user/delete/:id', controller.admin.destroy)
+
+    router.get('/get_user', controller.admin.getUser)
+
+    // Area
+    router.get('/province', controller.area.getProvince)
+    router.post('/regency', controller.area.getRegency)
+    router.post('/district', controller.area.getDistrict)
 
     app.use('/', router)
 }
