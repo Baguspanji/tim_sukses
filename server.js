@@ -26,7 +26,7 @@ app.use(express.urlencoded({
 var sesi = {
     secret: env.ACCESS_SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { maxAge: 60000, }
 }
 
